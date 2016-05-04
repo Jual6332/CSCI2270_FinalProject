@@ -36,7 +36,13 @@ bool checkInput(string input) {
 	if ( isNumber(input) ) {
 	    tablesz = stoi(input);
             if ( tablesz <=0 || tablesz > MAXTABSZ ) {
-                cout << "Table size is too large, max allowed is " << MAXTABSZ << " (one million) " << endl; 
+				if (tablesz > MAXTABSZ){
+					cout << "Table size is too large, max allowed is " << MAXTABSZ << " (one million) " << endl; 
+				}else if (tablesz == 0){
+					cout << "Table size cannot be zero. " << endl;
+				}else if(tablesz < 0){
+					cout << "Table size cannot be less than zero."<<endl;
+				}
                 return false;
                 
             } else {
